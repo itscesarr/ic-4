@@ -6,7 +6,8 @@
     "expo": "~57.0.25",
     "expo-status-bar": "~57.0.1",
     "react": "19.2.3",
-    "react-native": "0.86.3"
+    "react-native": "0.86.3",
+    "design_component": "github:Phon1209/rn-storybook-component-library#v1.0.3"
   },
   "scripts": {
     "start": "expo start",
