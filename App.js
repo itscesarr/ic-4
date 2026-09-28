@@ -1,25 +1,65 @@
-// // create fixture for the card component that takes in a title, subtitle, and image as props and displays them in a card layout
-// const fixture = {
-//   title: "Trail Name",
-//   subtitle: "Trail Description",
-//   image: "https://swmichigan.org/image/2276/web"
-// };
+import { SafeAreaView, ScrollView, StyleSheet, Text, View } from "react-native";
+import { TrailCard } from "design_component";
 
-// // create a fixture that takes in card from storybook and returns a card component with the fixture data
-// import React from 'react';
-// import Card from './components/cards';
+import hikes from "./hikeData.json";
 
-// const CardFixture = () => {
-//   return (
-//     <Card
-//       title={fixture.title}
-//       subtitle={fixture.subtitle}
-//       image={fixture.image}
+const demoHike = hikes.find((hike) => hike.imageLink.startsWith("https")) ?? hikes[0];
 
-//     />
-//   );
-// }
+export default function App() {
+  return (
+    <SafeAreaView style={styles.safeArea}>
+      <ScrollView contentContainerStyle={styles.content}>
+        <View style={styles.heading}>
+          <Text style={styles.eyebrow}>TRAIL CARD DEMO</Text>
+          <Text style={styles.title}>Featured hike</Text>
+          <Text style={styles.subtitle}>
+            Data is loaded from hikeData.json.
+          </Text>
+        </View>
 
-// export default CardFixture;
+        <TrailCard
+          name={demoHike.name}
+          imageUrl={demoHike.imageLink}
+          difficulty={demoHike.difficulty}
+          trailDistance={`${demoHike.distance} mi`}
+          estimateHikeTime={`${demoHike.estimatedHikeTime} min`}
+          saved
+          style={styles.card}
+        />
+      </ScrollView>
+    </SafeAreaView>
+  );
+}
 
-
+const styles = StyleSheet.create({
+  safeArea: {
+    backgroundColor: "#F7F8F4",
+    flex: 1,
+  },
+  content: {
+    flexGrow: 1,
+    padding: 20,
+  },
+  heading: {
+    gap: 6,
+    marginBottom: 20,
+  },
+  eyebrow: {
+    color: "#467A45",
+    fontSize: 12,
+    fontWeight: "700",
+    letterSpacing: 1.2,
+  },
+  title: {
+    color: "#1A261A",
+    fontSize: 28,
+    fontWeight: "700",
+  },
+  subtitle: {
+    color: "#536253",
+    fontSize: 16,
+  },
+  card: {
+    width: "100%",
+  },
+});

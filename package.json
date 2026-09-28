@@ -3,11 +3,13 @@
   "version": "1.0.0",
   "main": "index.js",
   "dependencies": {
+    "design_component": "github:Phon1209/rn-storybook-component-library#v1.0.3",
     "expo": "~57.0.25",
     "expo-status-bar": "~57.0.1",
     "react": "19.2.3",
+    "react-dom": "19.2.3",
     "react-native": "0.86.3",
-    "design_component": "github:Phon1209/rn-storybook-component-library#v1.0.3"
+    "react-native-web": "^0.21.2"
   },
   "scripts": {
     "start": "expo start",
@@ -15,5 +17,9 @@
     "ios": "expo start --ios",
     "web": "expo start --web"
   },
-  "private": true
+  "private": true,
+  "devDependencies": {
+    "eslint": "^9.0.0",
+    "eslint-config-expo": "~57.0.2"
+  }
 }
