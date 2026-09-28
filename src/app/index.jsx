@@ -1,11 +1,11 @@
 import { SafeAreaView, ScrollView, StyleSheet, Text, View } from "react-native";
 import { TrailCard } from "design_component";
 
-import hikes from "./hikeData.json";
+import hikes from "../../hikeData.json";
 
 const demoHike = hikes.find((hike) => hike.imageLink.startsWith("https")) ?? hikes[0];
 
-export default function App() {
+export default function HomeScreen() {
   return (
     <SafeAreaView style={styles.safeArea}>
       <ScrollView contentContainerStyle={styles.content}>
