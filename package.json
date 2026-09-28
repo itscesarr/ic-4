@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "main": "expo-router/entry",
   "dependencies": {
+    "@expo/vector-icons": "^15.0.2",
     "design_component": "github:Phon1209/rn-storybook-component-library#v1.0.3",
     "expo": "~57.0.25",
     "expo-constants": "~57.0.19",
