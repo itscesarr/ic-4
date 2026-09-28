@@ -1,0 +1,26 @@
+[
+  {
+    "id": 1,
+    "imageLink": "image-link",
+    "name": "Hike Image",
+    "difficulty": "difficulty",
+    "distance": 0.0,
+    "elevation": 0.0,
+    "estimatedHikeTime": 0.0,
+    "description": "descrption",
+    "mapPreview": "map-link",
+    "location": "location",
+    "trailPosition": "Coordinates"
+  },
+  {
+    "id": 2,
+    "imageLink": "https://picsum.photos/seed/lakeshore/800/600",
+    "name": "Lakeshore Trail",
+    "difficulty": "easy",
+    "distance": 3.8,
+    "elevation": 30,
+    "estimatedHikeTime": 90,
+    "description": "Mostly flat trail along the water's edge with sandy stretches and boardwalk sections over wetlands.",
+    "mapPreview": "https://picsum.photos/seed/lakeshore-map/600/400"
+  }
+]

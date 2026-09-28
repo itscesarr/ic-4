@@ -1,20 +1,25 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+// // create fixture for the card component that takes in a title, subtitle, and image as props and displays them in a card layout
+// const fixture = {
+//   title: "Trail Name",
+//   subtitle: "Trail Description",
+//   image: "https://swmichigan.org/image/2276/web"
+// };
 
-export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
-  );
-}
+// // create a fixture that takes in card from storybook and returns a card component with the fixture data
+// import React from 'react';
+// import Card from './components/cards';
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+// const CardFixture = () => {
+//   return (
+//     <Card
+//       title={fixture.title}
+//       subtitle={fixture.subtitle}
+//       image={fixture.image}
+
+//     />
+//   );
+// }
+
+// export default CardFixture;
+
+
