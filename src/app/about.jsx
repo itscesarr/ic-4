@@ -1,6 +1,7 @@
 import { Ionicons } from "@expo/vector-icons";
+import { Typography } from "design_component";
 import { router } from "expo-router";
-import { Pressable, StyleSheet, Text, View } from "react-native";
+import { Pressable, StyleSheet, View } from "react-native";
 import { colors } from "../../components/ui";
 export default function AboutScreen() {
   return (
@@ -13,13 +14,13 @@ export default function AboutScreen() {
         <Ionicons name="close" color={colors.text} size={26} />
       </Pressable>
       <Ionicons color={colors.green} name="compass" size={50} />
-      <Text style={styles.title}>TrailMate</Text>
-      <Text style={styles.version}>Version 1.0</Text>
-      <Text style={styles.text}>
+      <Typography color="primary900" style={styles.title} variant="display-xs" weight="bold">TrailMate</Typography>
+      <Typography color="tertiary600" style={styles.version} variant="text-sm">Version 1.0</Typography>
+      <Typography align="center" color="secondary700" style={styles.text} variant="text-md">
         TrailMate helps you discover beautiful nearby hikes, save favorites, and
         get outside with confidence.
-      </Text>
-      <Text style={styles.note}>Made for your next adventure.</Text>
+      </Typography>
+      <Typography color="successPrimary600" style={styles.note} variant="text-md" weight="bold">Made for your next adventure.</Typography>
     </View>
   );
 }
@@ -32,14 +33,8 @@ const styles = StyleSheet.create({
     padding: 36,
   },
   close: { position: "absolute", right: 22, top: 60 },
-  title: { color: colors.text, fontSize: 28, fontWeight: "800", marginTop: 15 },
-  version: { color: colors.muted, marginTop: 4 },
-  text: {
-    color: "#4A5660",
-    fontSize: 16,
-    lineHeight: 25,
-    marginTop: 30,
-    textAlign: "center",
-  },
-  note: { color: colors.green, fontWeight: "800", marginTop: 30 },
+  title: { marginTop: 15 },
+  version: { marginTop: 4 },
+  text: { marginTop: 30 },
+  note: { marginTop: 30 },
 });

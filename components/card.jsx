@@ -2,16 +2,16 @@
 //this card needs to have information about hiking trails.
 //the card should have a title, subtitle, and image of the trail
 import React from 'react';
-import { View, Text, Image, StyleSheet } from 'react-native';
-import { Color, Radii, Spacing } from "design_component";
+import { View, Image, StyleSheet } from 'react-native';
+import { Color, Radii, Spacing, Typography } from "design_component";
 
 const Card = ({ title, subtitle, image }) => {
   return (
     <View style={styles.card}>
       <Image source={{ uri: image }} style={styles.image} />
       <View style={styles.textContainer}>
-        <Text style={styles.title}>{title}</Text>
-        <Text style={styles.subtitle}>{subtitle}</Text>
+        <Typography color="primary900" style={styles.title} variant="text-md" weight="bold">{title}</Typography>
+        <Typography color="tertiary600" style={styles.subtitle} variant="text-sm">{subtitle}</Typography>
       </View>
     </View>
   );
@@ -28,6 +28,6 @@ const styles = StyleSheet.create({
   },
   image: { height: 88, width: 112 },
   textContainer: { flex: 1, justifyContent: "center", padding: Spacing[3] },
-  title: { color: Color.text.primary900, fontSize: 16, fontWeight: "700" },
-  subtitle: { color: Color.text.tertiary600, fontSize: 14, marginTop: Spacing[1] },
+  title: {},
+  subtitle: { marginTop: Spacing[1] },
 });

@@ -1,11 +1,11 @@
 import { Ionicons } from "@expo/vector-icons";
+import { Typography } from "design_component";
 import { useMemo, useState } from "react";
 import {
   ActivityIndicator,
   FlatList,
   Pressable,
   StyleSheet,
-  Text,
   TextInput,
   View,
 } from "react-native";
@@ -17,7 +17,7 @@ export function Loading({ label }) {
   return (
     <View style={styles.center}>
       <ActivityIndicator color={colors.green} size="large" />
-      <Text style={styles.loadingText}>{label}</Text>
+      <Typography color="tertiary600" style={styles.loadingText} variant="text-md">{label}</Typography>
     </View>
   );
 }
@@ -44,7 +44,7 @@ export default function ExploreScreen() {
         keyboardShouldPersistTaps="handled"
         ListHeaderComponent={
           <>
-            <Text style={styles.brand}>TrailMate</Text>
+            <Typography color="successPrimary600" style={styles.brand} variant="display-sm" weight="bold">TrailMate</Typography>
             <View style={styles.searchBox}>
               <Ionicons name="search" color={colors.muted} size={21} />
               <TextInput
@@ -84,21 +84,24 @@ export default function ExploreScreen() {
                     filter === item && styles.filterActive,
                   ]}
                 >
-                  <Text
+                  <Typography
+                    color={filter === item ? "white" : "secondary700"}
                     style={[
                       styles.filterText,
                       filter === item && styles.filterTextActive,
                     ]}
+                    variant="text-sm"
+                    weight="bold"
                   >
                     {item}
-                  </Text>
+                  </Typography>
                 </Pressable>
               ))}
             </View>
-            <Text style={styles.resultLabel}>
+            <Typography color="tertiary600" style={styles.resultLabel} variant="text-sm" weight="semibold">
               {results.length} {results.length === 1 ? "trail" : "trails"}{" "}
               nearby
-            </Text>
+            </Typography>
           </>
         }
         ListEmptyComponent={
@@ -108,10 +111,10 @@ export default function ExploreScreen() {
               color={colors.green}
               size={42}
             />
-            <Text style={styles.emptyTitle}>No trails found</Text>
-            <Text style={styles.emptyText}>
+            <Typography color="primary900" style={styles.emptyTitle} variant="text-lg" weight="bold">No trails found</Typography>
+            <Typography align="center" color="tertiary600" style={styles.emptyText} variant="text-sm">
               Try a different search or filter.
-            </Text>
+            </Typography>
           </View>
         }
         renderItem={({ item }) => (
@@ -129,12 +132,7 @@ export default function ExploreScreen() {
 const styles = StyleSheet.create({
   screen: { backgroundColor: colors.background, flex: 1 },
   list: { padding: 20, paddingBottom: 30 },
-  brand: {
-    color: colors.green,
-    fontSize: 30,
-    fontWeight: "800",
-    marginBottom: 20,
-  },
+  brand: { marginBottom: 20 },
   searchBox: {
     alignItems: "center",
     backgroundColor: "#FFFFFF",
@@ -157,20 +155,9 @@ const styles = StyleSheet.create({
     paddingVertical: 7,
   },
   filterActive: { backgroundColor: colors.green, borderColor: colors.green },
-  filterText: {
-    color: "#5B6574",
-    fontSize: 14,
-    fontWeight: "700",
-    textAlign: "center",
-  },
-  filterTextActive: { color: "#FFFFFF" },
-  resultLabel: {
-    color: colors.muted,
-    fontSize: 14,
-    fontWeight: "600",
-    marginBottom: 10,
-    marginTop: 20,
-  },
+  filterText: { textAlign: "center" },
+  filterTextActive: {},
+  resultLabel: { marginBottom: 10, marginTop: 20 },
   center: {
     alignItems: "center",
     backgroundColor: colors.background,
@@ -178,7 +165,7 @@ const styles = StyleSheet.create({
     gap: 12,
     justifyContent: "center",
   },
-  loadingText: { color: colors.muted, fontSize: 16 },
+  loadingText: {},
   empty: {
     alignItems: "center",
     backgroundColor: "#FFFFFF",
@@ -187,6 +174,6 @@ const styles = StyleSheet.create({
     marginTop: 18,
     padding: 28,
   },
-  emptyTitle: { color: colors.text, fontSize: 19, fontWeight: "800" },
-  emptyText: { color: colors.muted, fontSize: 15 },
+  emptyTitle: {},
+  emptyText: {},
 });

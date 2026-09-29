@@ -1,6 +1,7 @@
 import { Ionicons } from "@expo/vector-icons";
+import { Typography } from "design_component";
 import { router } from "expo-router";
-import { Pressable, StyleSheet, Text, View } from "react-native";
+import { Pressable, StyleSheet, View } from "react-native";
 import { colors } from "../../components/ui";
 export default function SignedOutScreen() {
   return (
@@ -8,17 +9,17 @@ export default function SignedOutScreen() {
       <View style={styles.icon}>
         <Ionicons color="#FFFFFF" name="compass" size={42} />
       </View>
-      <Text style={styles.title}>You’re signed out</Text>
-      <Text style={styles.text}>
+      <Typography color="primary900" style={styles.title} variant="display-xs" weight="bold">You’re signed out</Typography>
+      <Typography align="center" color="tertiary600" style={styles.text} variant="text-md">
         Thanks for exploring TrailMate. You can return anytime as our demo
         hiker.
-      </Text>
+      </Typography>
       <Pressable
         accessibilityRole="button"
         onPress={() => router.replace("/")}
         style={styles.button}
       >
-        <Text style={styles.buttonText}>Continue as demo user</Text>
+        <Typography color="white" style={styles.buttonText} variant="text-md" weight="bold">Continue as demo user</Typography>
       </Pressable>
     </View>
   );
@@ -39,14 +40,8 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     width: 76,
   },
-  title: { color: colors.text, fontSize: 27, fontWeight: "800", marginTop: 24 },
-  text: {
-    color: colors.muted,
-    fontSize: 16,
-    lineHeight: 24,
-    marginTop: 12,
-    textAlign: "center",
-  },
+  title: { marginTop: 24 },
+  text: { marginTop: 12 },
   button: {
     backgroundColor: colors.green,
     borderRadius: 14,
@@ -54,5 +49,5 @@ const styles = StyleSheet.create({
     paddingHorizontal: 26,
     paddingVertical: 16,
   },
-  buttonText: { color: "#FFFFFF", fontSize: 16, fontWeight: "800" },
+  buttonText: {},
 });

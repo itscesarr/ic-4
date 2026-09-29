@@ -1,4 +1,5 @@
 import { Ionicons } from "@expo/vector-icons";
+import { Typography } from "design_component";
 import { router } from "expo-router";
 import {
   Alert,
@@ -7,7 +8,6 @@ import {
   ScrollView,
   StyleSheet,
   Switch,
-  Text,
   View,
 } from "react-native";
 import { useTrailMate } from "../../../components/trail-mate-store";
@@ -30,7 +30,7 @@ export default function ProfileScreen() {
     );
   return (
     <ScrollView contentContainerStyle={styles.content} style={styles.screen}>
-      <Text style={styles.title}>Profile</Text>
+      <Typography color="primary900" style={styles.title} variant="display-sm" weight="bold">Profile</Typography>
       <View style={styles.hero}>
         <Image
           accessibilityLabel="Demo hiker profile photo"
@@ -40,11 +40,11 @@ export default function ProfileScreen() {
           style={styles.avatar}
         />
         <View>
-          <Text style={styles.name}>Alex Morgan</Text>
-          <Text style={styles.count}>12 trails hiked</Text>
+          <Typography color="primary900" style={styles.name} variant="text-lg" weight="bold">Alex Morgan</Typography>
+          <Typography color="tertiary600" style={styles.count} variant="text-sm">12 trails hiked</Typography>
         </View>
       </View>
-      <Text style={styles.section}>SETTINGS</Text>
+      <Typography color="tertiary600" style={styles.section} variant="text-xs" weight="bold">SETTINGS</Typography>
       <View style={styles.group}>
         <Setting
           icon="notifications-outline"
@@ -79,7 +79,7 @@ export default function ProfileScreen() {
         style={styles.logout}
       >
         <Ionicons name="log-out-outline" color="#B83939" size={21} />
-        <Text style={styles.logoutText}>Log out</Text>
+        <Typography color="errorPrimary600" style={styles.logoutText} variant="text-md" weight="bold">Log out</Typography>
       </Pressable>
     </ScrollView>
   );
@@ -88,8 +88,8 @@ function Setting({ icon, label, value, accessory, onPress }) {
   const inner = (
     <>
       <Ionicons color={colors.green} name={icon} size={22} />
-      <Text style={styles.settingLabel}>{label}</Text>
-      {value ? <Text style={styles.value}>{value}</Text> : null}
+      <Typography color="primary900" style={styles.settingLabel} variant="text-md" weight="semibold">{label}</Typography>
+      {value ? <Typography color="tertiary600" style={styles.value} variant="text-sm">{value}</Typography> : null}
       {accessory ??
         (onPress ? (
           <Ionicons color="#8B93A1" name="chevron-forward" size={20} />
@@ -112,12 +112,7 @@ function Setting({ icon, label, value, accessory, onPress }) {
 const styles = StyleSheet.create({
   screen: { backgroundColor: colors.background },
   content: { padding: 20, paddingBottom: 38 },
-  title: {
-    color: colors.text,
-    fontSize: 30,
-    fontWeight: "800",
-    marginBottom: 20,
-  },
+  title: { marginBottom: 20 },
   hero: {
     alignItems: "center",
     backgroundColor: "#FFFFFF",
@@ -127,16 +122,9 @@ const styles = StyleSheet.create({
     padding: 18,
   },
   avatar: { borderRadius: 33, height: 66, width: 66 },
-  name: { color: colors.text, fontSize: 19, fontWeight: "800" },
-  count: { color: colors.muted, fontSize: 15, marginTop: 4 },
-  section: {
-    color: colors.muted,
-    fontSize: 12,
-    fontWeight: "800",
-    letterSpacing: 1,
-    marginBottom: 8,
-    marginTop: 28,
-  },
+  name: {},
+  count: { marginTop: 4 },
+  section: { letterSpacing: 1, marginBottom: 8, marginTop: 28 },
   group: { backgroundColor: "#FFFFFF", borderRadius: 16, overflow: "hidden" },
   row: {
     alignItems: "center",
@@ -145,13 +133,8 @@ const styles = StyleSheet.create({
     minHeight: 58,
     paddingHorizontal: 16,
   },
-  settingLabel: {
-    color: colors.text,
-    flex: 1,
-    fontSize: 16,
-    fontWeight: "600",
-  },
-  value: { color: colors.muted, fontSize: 14 },
+  settingLabel: { flex: 1 },
+  value: {},
   divider: { backgroundColor: "#E9EBE8", height: 1, marginLeft: 50 },
   logout: {
     alignItems: "center",
@@ -163,5 +146,5 @@ const styles = StyleSheet.create({
     marginTop: 26,
     minHeight: 52,
   },
-  logoutText: { color: "#B83939", fontSize: 16, fontWeight: "800" },
+  logoutText: {},
 });
