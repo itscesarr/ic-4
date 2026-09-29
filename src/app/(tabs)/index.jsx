@@ -1,15 +1,192 @@
 import { Ionicons } from "@expo/vector-icons";
 import { useMemo, useState } from "react";
-import { ActivityIndicator, FlatList, Pressable, StyleSheet, Text, TextInput, View } from "react-native";
+import {
+  ActivityIndicator,
+  FlatList,
+  Pressable,
+  StyleSheet,
+  Text,
+  TextInput,
+  View,
+} from "react-native";
 import { TrailCard } from "../../../components/trail-card";
 import { useTrailMate } from "../../../components/trail-mate-store";
 import { colors } from "../../../components/ui";
 const filters = ["All", "Easy", "Moderate", "Hard"];
-export function Loading({ label }) { return <View style={styles.center}><ActivityIndicator color={colors.green} size="large" /><Text style={styles.loadingText}>{label}</Text></View>; }
-export default function ExploreScreen() {
-  const { trails, ready, savedIds, toggleSaved, units } = useTrailMate(); const [query, setQuery] = useState(""); const [filter, setFilter] = useState("All");
-  const results = useMemo(() => trails.filter((trail) => trail.name.toLowerCase().includes(query.trim().toLowerCase()) && (filter === "All" || trail.difficulty === filter.toLowerCase())), [filter, query, trails]);
-  if (!ready) return <Loading label="Loading trails…" />;
-  return <View style={styles.screen}><FlatList data={results} keyExtractor={(trail) => String(trail.id)} contentContainerStyle={styles.list} keyboardShouldPersistTaps="handled" ListHeaderComponent={<><Text style={styles.brand}>TrailMate</Text><View style={styles.searchBox}><Ionicons name="search" color={colors.muted} size={21} /><TextInput accessibilityLabel="Search trails" autoCapitalize="none" onChangeText={setQuery} placeholder="Search trails" placeholderTextColor="#7B8493" style={styles.searchInput} value={query} />{query ? <Pressable accessibilityLabel="Clear search" onPress={() => setQuery("")}><Ionicons name="close-circle" color={colors.muted} size={20} /></Pressable> : null}</View><View accessibilityLabel="Filter by difficulty" style={styles.filters}>{filters.map((item) => <Pressable accessibilityRole="button" accessibilityState={{ selected: filter === item }} key={item} onPress={() => setFilter(item)} style={[styles.filter, filter === item && styles.filterActive]}><Text style={[styles.filterText, filter === item && styles.filterTextActive]}>{item}</Text></Pressable>)}</View><Text style={styles.resultLabel}>{results.length} {results.length === 1 ? "trail" : "trails"} nearby</Text></>} ListEmptyComponent={<View style={styles.empty}><Ionicons name="trail-sign-outline" color={colors.green} size={42} /><Text style={styles.emptyTitle}>No trails found</Text><Text style={styles.emptyText}>Try a different search or filter.</Text></View>} renderItem={({ item }) => <TrailCard trail={item} saved={savedIds.includes(item.id)} onToggleSaved={() => toggleSaved(item.id)} units={units} />} /></View>;
+export function Loading({ label }) {
+  return (
+    <View style={styles.center}>
+      <ActivityIndicator color={colors.green} size="large" />
+      <Text style={styles.loadingText}>{label}</Text>
+    </View>
+  );
 }
-const styles = StyleSheet.create({ screen: { backgroundColor: colors.background, flex: 1 }, list: { padding: 20, paddingBottom: 30 }, brand: { color: colors.green, fontSize: 30, fontWeight: "800", marginBottom: 20 }, searchBox: { alignItems: "center", backgroundColor: "#FFFFFF", borderColor: "#D9DDE2", borderRadius: 26, borderWidth: 1, flexDirection: "row", gap: 9, height: 50, paddingHorizontal: 15 }, searchInput: { color: colors.text, flex: 1, fontSize: 16, height: "100%" }, filters: { flexDirection: "row", flexWrap: "wrap", gap: 8, marginTop: 14 }, filter: { borderColor: "#CCD2DA", borderRadius: 17, borderWidth: 1, minWidth: 72, paddingHorizontal: 14, paddingVertical: 7 }, filterActive: { backgroundColor: colors.green, borderColor: colors.green }, filterText: { color: "#5B6574", fontSize: 14, fontWeight: "700", textAlign: "center" }, filterTextActive: { color: "#FFFFFF" }, resultLabel: { color: colors.muted, fontSize: 14, fontWeight: "600", marginBottom: 10, marginTop: 20 }, center: { alignItems: "center", backgroundColor: colors.background, flex: 1, gap: 12, justifyContent: "center" }, loadingText: { color: colors.muted, fontSize: 16 }, empty: { alignItems: "center", backgroundColor: "#FFFFFF", borderRadius: 18, gap: 9, marginTop: 18, padding: 28 }, emptyTitle: { color: colors.text, fontSize: 19, fontWeight: "800" }, emptyText: { color: colors.muted, fontSize: 15 } });
+export default function ExploreScreen() {
+  const { trails, ready, savedIds, toggleSaved, units } = useTrailMate();
+  const [query, setQuery] = useState("");
+  const [filter, setFilter] = useState("All");
+  const results = useMemo(
+    () =>
+      trails.filter(
+        (trail) =>
+          trail.name.toLowerCase().includes(query.trim().toLowerCase()) &&
+          (filter === "All" || trail.difficulty === filter.toLowerCase()),
+      ),
+    [filter, query, trails],
+  );
+  if (!ready) return <Loading label="Loading trails…" />;
+  return (
+    <View style={styles.screen}>
+      <FlatList
+        data={results}
+        keyExtractor={(trail) => String(trail.id)}
+        contentContainerStyle={styles.list}
+        keyboardShouldPersistTaps="handled"
+        ListHeaderComponent={
+          <>
+            <Text style={styles.brand}>TrailMate</Text>
+            <View style={styles.searchBox}>
+              <Ionicons name="search" color={colors.muted} size={21} />
+              <TextInput
+                accessibilityLabel="Search trails"
+                autoCapitalize="none"
+                onChangeText={setQuery}
+                placeholder="Search trails"
+                placeholderTextColor="#7B8493"
+                style={styles.searchInput}
+                value={query}
+              />
+              {query ? (
+                <Pressable
+                  accessibilityLabel="Clear search"
+                  onPress={() => setQuery("")}
+                >
+                  <Ionicons
+                    name="close-circle"
+                    color={colors.muted}
+                    size={20}
+                  />
+                </Pressable>
+              ) : null}
+            </View>
+            <View
+              accessibilityLabel="Filter by difficulty"
+              style={styles.filters}
+            >
+              {filters.map((item) => (
+                <Pressable
+                  accessibilityRole="button"
+                  accessibilityState={{ selected: filter === item }}
+                  key={item}
+                  onPress={() => setFilter(item)}
+                  style={[
+                    styles.filter,
+                    filter === item && styles.filterActive,
+                  ]}
+                >
+                  <Text
+                    style={[
+                      styles.filterText,
+                      filter === item && styles.filterTextActive,
+                    ]}
+                  >
+                    {item}
+                  </Text>
+                </Pressable>
+              ))}
+            </View>
+            <Text style={styles.resultLabel}>
+              {results.length} {results.length === 1 ? "trail" : "trails"}{" "}
+              nearby
+            </Text>
+          </>
+        }
+        ListEmptyComponent={
+          <View style={styles.empty}>
+            <Ionicons
+              name="trail-sign-outline"
+              color={colors.green}
+              size={42}
+            />
+            <Text style={styles.emptyTitle}>No trails found</Text>
+            <Text style={styles.emptyText}>
+              Try a different search or filter.
+            </Text>
+          </View>
+        }
+        renderItem={({ item }) => (
+          <TrailCard
+            trail={item}
+            saved={savedIds.includes(item.id)}
+            onToggleSaved={() => toggleSaved(item.id)}
+            units={units}
+          />
+        )}
+      />
+    </View>
+  );
+}
+const styles = StyleSheet.create({
+  screen: { backgroundColor: colors.background, flex: 1 },
+  list: { padding: 20, paddingBottom: 30 },
+  brand: {
+    color: colors.green,
+    fontSize: 30,
+    fontWeight: "800",
+    marginBottom: 20,
+  },
+  searchBox: {
+    alignItems: "center",
+    backgroundColor: "#FFFFFF",
+    borderColor: "#D9DDE2",
+    borderRadius: 26,
+    borderWidth: 1,
+    flexDirection: "row",
+    gap: 9,
+    height: 50,
+    paddingHorizontal: 15,
+  },
+  searchInput: { color: colors.text, flex: 1, fontSize: 16, height: "100%" },
+  filters: { flexDirection: "row", flexWrap: "wrap", gap: 8, marginTop: 14 },
+  filter: {
+    borderColor: "#CCD2DA",
+    borderRadius: 17,
+    borderWidth: 1,
+    minWidth: 72,
+    paddingHorizontal: 14,
+    paddingVertical: 7,
+  },
+  filterActive: { backgroundColor: colors.green, borderColor: colors.green },
+  filterText: {
+    color: "#5B6574",
+    fontSize: 14,
+    fontWeight: "700",
+    textAlign: "center",
+  },
+  filterTextActive: { color: "#FFFFFF" },
+  resultLabel: {
+    color: colors.muted,
+    fontSize: 14,
+    fontWeight: "600",
+    marginBottom: 10,
+    marginTop: 20,
+  },
+  center: {
+    alignItems: "center",
+    backgroundColor: colors.background,
+    flex: 1,
+    gap: 12,
+    justifyContent: "center",
+  },
+  loadingText: { color: colors.muted, fontSize: 16 },
+  empty: {
+    alignItems: "center",
+    backgroundColor: "#FFFFFF",
+    borderRadius: 18,
+    gap: 9,
+    marginTop: 18,
+    padding: 28,
+  },
+  emptyTitle: { color: colors.text, fontSize: 19, fontWeight: "800" },
+  emptyText: { color: colors.muted, fontSize: 15 },
+});

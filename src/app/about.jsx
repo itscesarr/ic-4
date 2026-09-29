@@ -2,5 +2,44 @@ import { Ionicons } from "@expo/vector-icons";
 import { router } from "expo-router";
 import { Pressable, StyleSheet, Text, View } from "react-native";
 import { colors } from "../../components/ui";
-export default function AboutScreen() { return <View style={styles.screen}><Pressable accessibilityLabel="Close about TrailMate" onPress={() => router.back()} style={styles.close}><Ionicons name="close" color={colors.text} size={26} /></Pressable><Ionicons color={colors.green} name="compass" size={50} /><Text style={styles.title}>TrailMate</Text><Text style={styles.version}>Version 1.0</Text><Text style={styles.text}>TrailMate helps you discover beautiful nearby hikes, save favorites, and get outside with confidence.</Text><Text style={styles.note}>Made for your next adventure.</Text></View>; }
-const styles = StyleSheet.create({ screen: { alignItems: "center", backgroundColor: colors.background, flex: 1, justifyContent: "center", padding: 36 }, close: { position: "absolute", right: 22, top: 60 }, title: { color: colors.text, fontSize: 28, fontWeight: "800", marginTop: 15 }, version: { color: colors.muted, marginTop: 4 }, text: { color: "#4A5660", fontSize: 16, lineHeight: 25, marginTop: 30, textAlign: "center" }, note: { color: colors.green, fontWeight: "800", marginTop: 30 } });
+export default function AboutScreen() {
+  return (
+    <View style={styles.screen}>
+      <Pressable
+        accessibilityLabel="Close about TrailMate"
+        onPress={() => router.back()}
+        style={styles.close}
+      >
+        <Ionicons name="close" color={colors.text} size={26} />
+      </Pressable>
+      <Ionicons color={colors.green} name="compass" size={50} />
+      <Text style={styles.title}>TrailMate</Text>
+      <Text style={styles.version}>Version 1.0</Text>
+      <Text style={styles.text}>
+        TrailMate helps you discover beautiful nearby hikes, save favorites, and
+        get outside with confidence.
+      </Text>
+      <Text style={styles.note}>Made for your next adventure.</Text>
+    </View>
+  );
+}
+const styles = StyleSheet.create({
+  screen: {
+    alignItems: "center",
+    backgroundColor: colors.background,
+    flex: 1,
+    justifyContent: "center",
+    padding: 36,
+  },
+  close: { position: "absolute", right: 22, top: 60 },
+  title: { color: colors.text, fontSize: 28, fontWeight: "800", marginTop: 15 },
+  version: { color: colors.muted, marginTop: 4 },
+  text: {
+    color: "#4A5660",
+    fontSize: 16,
+    lineHeight: 25,
+    marginTop: 30,
+    textAlign: "center",
+  },
+  note: { color: colors.green, fontWeight: "800", marginTop: 30 },
+});
