@@ -1,40 +1,7 @@
 [
-  {
-    "id": 2,
-    "imageLink": "image-link",
-    "name": "Hike Image",
-    "difficulty": "difficulty",
-    "distance": 0.0,
-    "elevation": 0.0,
-    "estimatedHikeTime": 0.0,
-    "description": "descrption",
-    "mapPreview": "map-link",
-    "location": "location",
-    "trailPosition": "Coordinates"
-  },
-  {
-    "id": 3,
-    "imageLink": "image-link",
-    "name": "Hike Image",
-    "difficulty": "difficulty",
-    "distance": 0.0,
-    "elevation": 0.0,
-    "estimatedHikeTime": 0.0,
-    "description": "descrption",
-    "mapPreview": "map-link",
-    "location": "location",
-    "trailPosition": "Coordinates"
-  },
-  {
-    "id": 4,
-    "imageLink": "https://picsum.photos/seed/lakeshore/800/600",
-    "name": "Lakeshore Trail",
-    "difficulty": "easy",
-    "distance": 3.8,
-    "elevation": 30,
-    "estimatedHikeTime": 90,
-    "description": "Mostly flat trail along the water's edge with sandy stretches and boardwalk sections over wetlands.",
-    "mapPreview": "https://picsum.photos/seed/lakeshore-map/600/400"
-  }
+  { "id": 1, "imageLink": "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&w=900&q=85", "name": "Cedar Ridge Loop", "difficulty": "easy", "distance": 4.2, "elevation": 450, "estimatedHikeTime": 135, "description": "A welcoming forest loop with soft pine needles underfoot, gentle climbs, and a quiet overlook above the cedar canopy.", "mapPreview": "https://images.unsplash.com/photo-1559650656-5d1d361ad10e?auto=format&fit=crop&w=900&q=80", "location": [42.277, -83.738], "trailPosition": [[42.277, -83.738], [42.28, -83.73]] },
+  { "id": 2, "imageLink": "https://images.unsplash.com/photo-1443632864897-14973fa006cf?auto=format&fit=crop&w=900&q=85", "name": "Willow Creek Path", "difficulty": "moderate", "distance": 6.5, "elevation": 980, "estimatedHikeTime": 210, "description": "Follow a lively creek through shaded woodland, across small footbridges, and up a steady ridge with wide valley views.", "mapPreview": "https://images.unsplash.com/photo-1552083375-1447ce886485?auto=format&fit=crop&w=900&q=80", "location": [42.262, -83.749], "trailPosition": [[42.262, -83.749], [42.268, -83.741]] },
+  { "id": 3, "imageLink": "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=900&q=85", "name": "Granite Peak Summit", "difficulty": "hard", "distance": 11.8, "elevation": 3450, "estimatedHikeTime": 420, "description": "A challenging summit hike over steep, rocky terrain. The payoff is a panoramic alpine view that makes the long climb worthwhile.", "mapPreview": "https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=900&q=80", "location": [42.29, -83.77], "trailPosition": [[42.29, -83.77], [42.301, -83.761]] },
+  { "id": 4, "imageLink": "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=900&q=85", "name": "Lakeshore Trail", "difficulty": "easy", "distance": 3.8, "elevation": 30, "estimatedHikeTime": 90, "description": "A relaxed shoreline walk with sandy stretches, wetlands, and peaceful lake views. Ideal for a low-key afternoon outside.", "mapPreview": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=900&q=80", "location": [42.251, -83.722], "trailPosition": [[42.251, -83.722], [42.257, -83.717]] },
+  { "id": 5, "imageLink": "https://images.unsplash.com/photo-1464278533981-50106e6176b1?auto=format&fit=crop&w=900&q=85", "name": "Sunset Bluff", "difficulty": "moderate", "distance": 5.1, "elevation": 760, "estimatedHikeTime": 150, "description": "Climb through open meadow and quiet oak forest to a west-facing bluff that is especially beautiful near sunset.", "mapPreview": "https://images.unsplash.com/photo-1470770841072-f978cf4d019e?auto=format&fit=crop&w=900&q=80", "location": [42.31, -83.72], "trailPosition": [[42.31, -83.72], [42.315, -83.711]] }
 ]
-
