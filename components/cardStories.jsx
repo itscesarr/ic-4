@@ -1,8 +1,8 @@
 import React from "react";
 import { StyleSheet, View } from "react-native";
+import { Color } from "design_component";
 
-import { Card } from "./Card.jsx";
-import { Color, Spacing } from "../../tokens/index.js";
+import Card from "./card.jsx";
 
 const trailImage =
   "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&w=400&q=80";
@@ -66,7 +66,7 @@ const styles = StyleSheet.create({
     backgroundColor: Color.background.secondary,
     justifyContent: "center",
     minHeight: 280,
-    padding: Spacing[6],
+    padding: 24,
   },
   cardWidth: {
     maxWidth: 680,

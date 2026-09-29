@@ -1,0 +1,4 @@
+import { Ionicons } from "@expo/vector-icons";
+import { Tabs } from "expo-router";
+const icons = { index: "compass", saved: "flag", profile: "person" };
+export default function TabLayout() { return <Tabs screenOptions={({ route }) => ({ headerShown: false, tabBarActiveTintColor: "#176B47", tabBarInactiveTintColor: "#8B93A1", tabBarStyle: { borderTopColor: "#E5E7E1", height: 68, paddingTop: 7 }, tabBarLabelStyle: { fontSize: 12, fontWeight: "700" }, tabBarIcon: ({ color, size }) => <Ionicons name={icons[route.name] ?? "ellipse"} color={color} size={size} /> })}><Tabs.Screen name="index" options={{ title: "Explore" }} /><Tabs.Screen name="saved" options={{ title: "Saved" }} /><Tabs.Screen name="profile" options={{ title: "Profile" }} /><Tabs.Screen name="trail/[id]" options={{ href: null }} /></Tabs>; }
