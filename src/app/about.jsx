@@ -17,8 +17,8 @@ export default function AboutScreen() {
       <Typography color="primary900" style={styles.title} variant="display-xs" weight="bold">TrailMate</Typography>
       <Typography color="tertiary600" style={styles.version} variant="text-sm">Version 1.0</Typography>
       <Typography align="center" color="secondary700" style={styles.text} variant="text-md">
-        TrailMate helps you discover beautiful nearby hikes, save favorites, and
-        get outside with confidence.
+        TrailMate helps users discover nearby hiking trails, review basic trail information, 
+        and save trails they want to visit later.
       </Typography>
       <Typography color="successPrimary600" style={styles.note} variant="text-md" weight="bold">Made for your next adventure.</Typography>
     </View>

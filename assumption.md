@@ -13,6 +13,6 @@
 - Notifications are a persisted in-app toggle only; no system permission request or push notification is sent.
 - Preferred units switch distance/elevation between imperial and metric values.
 - About is static app information.
-- Dark mode, authentication, real mapping, live location, and external navigation are out of scope.
+- Dark mode, authentication, real mapping, live location, and external navigation are out of scope. Assuming there are using app through out the middle of the day for exploration.
 - Controls have accessible labels, strong contrast, readable text, and practical touch targets.
 - State is structured for a future authenticated, account-backed saved-trails implementation.

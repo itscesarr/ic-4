@@ -112,7 +112,7 @@ function Setting({ icon, label, value, accessory, onPress }) {
 const styles = StyleSheet.create({
   screen: { backgroundColor: colors.background },
   content: { padding: 20, paddingBottom: 38 },
-  title: { marginBottom: 20 },
+  title: { marginTop: 40, marginBottom: 20 },
   hero: {
     alignItems: "center",
     backgroundColor: "#FFFFFF",

@@ -19,6 +19,7 @@ import {
   formatTime,
 } from "../../../../components/ui";
 
+
 export default function TrailDetailScreen() {
   const { id } = useLocalSearchParams();
   const { trails, savedIds, toggleSaved, units } = useTrailMate();
@@ -138,8 +139,12 @@ export default function TrailDetailScreen() {
           Trail map
         </Typography>
         <Image
+          // accessibilityLabel={`${trail.name} trail map preview`}
+          // //include a map preview image in the app bundle and use require() to load it, or use a remote image URL
+          // source={{ uri: trail.mapLink }}
+          // style={styles.map}
           accessibilityLabel={`${trail.name} trail map preview`}
-          source={{ uri: trail.mapPreview }}
+          source={require('../../../../assets/trailMap.png')} // Replace with the actual path to your map image
           style={styles.map}
         />
         <Pressable

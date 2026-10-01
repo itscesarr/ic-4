@@ -132,7 +132,7 @@ export default function ExploreScreen() {
 const styles = StyleSheet.create({
   screen: { backgroundColor: colors.background, flex: 1 },
   list: { padding: 20, paddingBottom: 30 },
-  brand: { marginBottom: 20 },
+  brand: { marginTop: 40, marginBottom: 20 },
   searchBox: {
     alignItems: "center",
     backgroundColor: "#FFFFFF",
